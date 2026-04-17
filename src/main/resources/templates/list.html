@@ -8,7 +8,7 @@
 <h2>Lista de mascotas</h2>
 <table border="1" cellpadding="8">
   <tr><th>ID</th><th>Nombre</th><th>Especie</th><th>Raza</th><th>Edad</th><th>Nombre del dueño</th><th>Teléfono</th><th>Estado</th><th>Acciones</th></tr>
-  <tr th:each="m : ${mascotas}">
+  <tr th:each="m : ${mascota}">
     <td th:text="${m.id}"></td>
     <td th:text="${m.nombre}"></td>
     <td th:text="${m.especie}"></td>

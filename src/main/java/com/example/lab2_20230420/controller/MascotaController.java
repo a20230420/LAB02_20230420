@@ -20,7 +20,7 @@ public class MascotaController {
 
     @GetMapping("")
     public String lista(Model model) {
-        model.addAttribute("mascotas", mascotaRepository.findAll());;
+        model.addAttribute("mascota", mascotaRepository.findAll());;
         return "list";
 
     }
@@ -41,7 +41,7 @@ public class MascotaController {
 
 
         model.addAttribute("mascotaForm", form);
-        model.addAttribute("mascotas", mascotaRepository.findAll());
+        model.addAttribute("mascota", mascotaRepository.findAll());
         model.addAttribute("mode", "edit");
         return "form";
     }
