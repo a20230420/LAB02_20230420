@@ -43,25 +43,25 @@ public class MascotaController {
         model.addAttribute("mascotaForm", form);
         model.addAttribute("mascotas", mascotaRepository.findAll());
         model.addAttribute("mode", "edit");
-        return "list";
+        return "form";
     }
 
     @PostMapping("/update")
     public String update(@ModelAttribute MascotaForm form, Model model) {
 
-        Mascota mascota = employeeRepository.findById(form.getEmployeeId()).orElse(null);
-        if (employee == null) return "redirect:/opcion1/employee/list";
+        Mascota mascota = mascotaRepository.findById(form.getId()).orElse(null);
+        if (mascota == null) return "redirect:/mascota/list";
 
-        Job job = jobRepository.findById(form.getJobId()).orElse(null);
-        employee.setFirstName(form.getFirstName());
-        employee.setLastName(form.getLastName());
-        employee.setEmail(form.getEmail());
-        employee.setPhoneNumber(form.getPhoneNumber());
-        employee.setSalary(form.getSalary());
-        employee.setJob(job);
+        mascota.setNombre(form.getNombre());
+        mascota.setEspecie(form.getEspecie());
+        mascota.setRaza(form.getRaza());
+        mascota.setEdad(form.getEdad());
+        mascota.setNombreDueno(form.getNombreDueno());
+        mascota.setTelefono(form.getTelefono());
+        mascota.setEstado(form.getEstado());
 
-        employeeRepository.save(employee);
-        return "redirect:/opcion1/employee/list";
+        mascotaRepository.save(mascota);
+        return "redirect:/mascota/list";
     }
 
     @GetMapping("/delete")

@@ -10,26 +10,26 @@
 
 <form method="post"
       th:action="${mode == 'edit'} ? @{/mascota/update}}"
-      th:object="${employeeForm}">
-    <input type="hidden" th:field="*{employeeId}" />
+      th:object="${MascotaForm}">
+    <input type="hidden" th:field="*{id}" />
     <label>Nombre:</label>
-    <input type="text" th:field="*{firstName}" /><br><br>
-    <label>Apellido:</label>
-    <input type="text" th:field="*{lastName}" /><br><br>
-    <label>Email:</label>
-    <input type="text" th:field="*{email}" maxlength="25" /><br><br>
+    <input type="text" th:field="*{nombre}" /><br><br>
+    <label>Especie:</label>
+    <input type="text" th:field="*{especie}" /><br><br>
+    <label>Raza:</label>
+    <input type="text" th:field="*{raza}" maxlength="25" /><br><br>
+    <label>Edad:</label>
+    <input type="number" step="1" th:field="*{edad}" /><br><br>
+    <label>Nombre del dueño:</label>
+    <input type="text" th:field="*{nombreDueno}" /><br><br>
     <label>Teléfono:</label>
-    <input type="text" th:field="*{phoneNumber}" /><br><br>
-    <label>Salario:</label>
-    <input type="number" step="0.01" th:field="*{salary}" /><br><br>
-    <label>Job:</label>
-    <select th:field="*{jobId}">
-        <option value="">Seleccione un job</option>
-        <option th:each="job : ${jobs}" th:value="${job.jobId}" th:text="${job.jobTitle}"></option>
-    </select><br><br>
-    <button type="submit" th:text="${mode == 'edit' ? 'Actualizar' : 'Guardar'}"></button>
+    <input type="text" th:field="*{telefono}" /><br><br>
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" /><br><br>
+
+    <button type="submit" th:text="${mode == 'edit' ? 'Actualizar'}"></button>
 </form>
 
-<p><a th:href="@{/opcion1/employee/list}">Ver lista</a></p>
+<p><a th:href="@{/mascota/list}">Ver lista</a></p>
 </body>
 </html>
